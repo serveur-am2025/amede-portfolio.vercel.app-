@@ -26,6 +26,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -148,7 +149,7 @@ nav {
 }
 
 /* ==========================
-   MENU TOGGLE (icône 3 barres - mobile)
+   MENU TOGGLE (mobile)
 ========================== */
 
 .menu-toggle {
@@ -186,7 +187,7 @@ nav {
 }
 
 /* ==========================
-   À PROPOS (Hero fusionné)
+   À PROPOS (Hero)
 ========================== */
 
 #apropos {
@@ -219,7 +220,6 @@ nav {
     z-index: 2;
 }
 
-/* --- Colonne gauche --- */
 .hero-left {
     display: flex;
     flex-direction: column;
@@ -260,7 +260,6 @@ nav {
     max-width: 520px;
 }
 
-/* Contact lines */
 .hero-contact-info {
     display: flex;
     flex-direction: column;
@@ -281,7 +280,6 @@ nav {
     flex-shrink: 0;
 }
 
-/* Social buttons */
 .hero-socials {
     display: flex;
     gap: 12px;
@@ -307,7 +305,6 @@ nav {
     background: rgba(59,130,246,.08);
 }
 
-/* Buttons */
 .hero-buttons {
     display: flex;
     gap: 14px;
@@ -350,7 +347,6 @@ nav {
     transform: translateY(-2px);
 }
 
-/* --- Colonne droite : photo --- */
 .hero-right {
     display: flex;
     justify-content: center;
@@ -376,7 +372,6 @@ nav {
     z-index: 3;
 }
 
-/* Flèche bas */
 .hero-arrow {
     position: absolute;
     bottom: 30px;
@@ -421,7 +416,7 @@ section {
 }
 
 /* ==========================
-   COMPÉTENCES — CARTES CATÉGORIES
+   COMPÉTENCES
 ========================== */
 
 .skills-category-grid {
@@ -495,35 +490,6 @@ section {
     border-radius: 50%;
     background: var(--accent);
     flex-shrink: 0;
-}
-
-/* Badges de niveau */
-.skill-badge {
-    font-size: 0.68rem;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 999px;
-    letter-spacing: 0.3px;
-    margin-left: auto;
-    flex-shrink: 0;
-}
-
-.badge-excellent {
-    background: rgba(59,130,246,.15);
-    color: var(--accent2);
-    border: 1px solid rgba(59,130,246,.3);
-}
-
-.badge-moyen {
-    background: rgba(251,191,36,.1);
-    color: #fbbf24;
-    border: 1px solid rgba(251,191,36,.25);
-}
-
-.badge-debutant {
-    background: rgba(148,163,184,.1);
-    color: var(--muted);
-    border: 1px solid rgba(148,163,184,.2);
 }
 
 /* ==========================
@@ -785,33 +751,6 @@ section {
 }
 
 /* ==========================
-   HARDWARE
-========================== */
-
-.hardware-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-}
-
-.hardware-card {
-    background: var(--card);
-    padding: 22px;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    font-weight: 600;
-    transition: .3s;
-}
-
-.hardware-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-/* ==========================
    CONTACT
 ========================== */
 
@@ -965,10 +904,6 @@ footer {
     font-weight: bold;
 }
 
-.footer-love { margin-top: 8px; }
-.footer-love span { color: var(--accent); font-weight: bold; }
-
-
 /* ==========================
    LANGUES
 ========================== */
@@ -1022,7 +957,6 @@ footer {
     border-radius: 999px;
     transition: width 1.2s ease;
 }
-
 
 /* ==========================
    REVEAL
@@ -1156,9 +1090,11 @@ footer {
     }
 }
 
-/* ==========================
+/* ==========================================================
    GABARIT CV (export PDF)
-========================== */
+   Positionné hors écran horizontalement (-9999px)
+   height:auto pour ne JAMAIS couper le contenu
+========================================================== */
 
 #cv-template {
     position: absolute;
@@ -1167,12 +1103,13 @@ footer {
     width: 794px;
     height: auto;
     display: flex;
-    align-items: stretch;   /* les 2 colonnes s'étirent à la même hauteur */
+    align-items: stretch;
     background: #ffffff;
     font-family: 'Segoe UI', sans-serif;
     color: #2b2b2b;
 }
 
+/* --- Sidebar bleu-gris clair --- */
 .cv-sidebar {
     width: 250px;
     flex-shrink: 0;
@@ -1181,36 +1118,19 @@ footer {
     box-sizing: border-box;
 }
 
-.cv-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-}
-
-/* --- Sidebar bleu-gris clair --- */
-.cv-sidebar {
-    width: 250px;
-    flex-shrink: 0;
-    height: 100%;
-    background: linear-gradient(180deg, #e3e9f5, #d7deee);
-    padding: 30px 20px;
-    box-sizing: border-box;
-}
-
 .cv-photo {
     width: 140px;
     height: 140px;
     object-fit: cover;
     display: block;
-    margin: 0 auto 22px;
+    margin: 0 auto 24px;
     border-radius: 6px;
     border: 3px solid #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
 
 .cv-side-section {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .cv-sidebar h4 {
@@ -1239,7 +1159,6 @@ footer {
     color: #1e293b;
 }
 
-/* Ligne contact avec icône */
 .cv-contact-item {
     display: flex;
     align-items: flex-start;
@@ -1264,14 +1183,12 @@ footer {
     flex: 1;
     display: flex;
     flex-direction: column;
-    height: 100%;
     box-sizing: border-box;
 }
 
-/* Bandeau nom avec forme diagonale sombre */
 .cv-header {
     position: relative;
-    padding: 32px 34px 20px;
+    padding: 40px 40px 20px;
     overflow: hidden;
     flex-shrink: 0;
 }
@@ -1315,7 +1232,7 @@ footer {
 }
 
 .cv-body {
-    padding: 8px 34px 24px;
+    padding: 10px 40px 40px;
     flex: 1;
 }
 
