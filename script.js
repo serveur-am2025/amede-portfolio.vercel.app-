@@ -220,6 +220,7 @@ if (btnSend) {
             btnSend.disabled = false;
         }, 3000);
     });
+    
 }
 
 // ===============================
@@ -228,3 +229,40 @@ if (btnSend) {
 
 console.log("%cPortfolio EA2I - Amedé", "color:#3b82f6;font-size:18px;font-weight:bold;");
 console.log("Java • IoT • ESP32 • JavaFX • RFID");
+
+// ===============================
+// TÉLÉCHARGEMENT CV EN PDF
+// ===============================
+
+const btnDownloadCV = document.querySelector('.btn-outline[download]');
+
+if (btnDownloadCV) {
+    btnDownloadCV.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const element = document.getElementById('cv-template');
+        const originalText = btnDownloadCV.innerHTML;
+
+        btnDownloadCV.innerHTML = "Génération...";
+
+        const opt = {
+            margin: 0,
+            filename: 'CV_RAKOTONANDRASANA_Amede.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: {
+                scale: 2,
+                useCORS: true,
+                width: 794,
+                height: 1123
+            },
+            jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(element).save().then(() => {
+            btnDownloadCV.innerHTML = originalText;
+        }).catch((err) => {
+            console.error("Erreur génération PDF :", err);
+            btnDownloadCV.innerHTML = originalText;
+        });
+    });
+}
