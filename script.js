@@ -239,11 +239,14 @@ if (btnDownloadCV) {
 
     const element = document.getElementById('cv-template');
     const originalText = btnDownloadCV.innerHTML;
-
     btnDownloadCV.innerHTML = "Génération...";
 
+    // On mémorise la position actuelle, puis on remonte en haut
+    const savedScrollX = window.scrollX;
+    const savedScrollY = window.scrollY;
+    window.scrollTo(0, 0);
+
     const realHeight = element.scrollHeight;
-    const currentScrollY = window.scrollY;   // <-- on mémorise le scroll actuel
 
     const opt = {
         margin: 0,
@@ -253,7 +256,7 @@ if (btnDownloadCV) {
             scale: 2,
             useCORS: true,
             scrollX: 0,
-            scrollY: -currentScrollY,   // <-- annule le décalage
+            scrollY: 0,
             x: -9999,
             y: 0,
             width: 794,
@@ -266,9 +269,11 @@ if (btnDownloadCV) {
 
     html2pdf().set(opt).from(element).save().then(() => {
         btnDownloadCV.innerHTML = originalText;
+        window.scrollTo(savedScrollX, savedScrollY); // on remet l'utilisateur où il était
     }).catch((err) => {
         console.error("Erreur génération PDF :", err);
         btnDownloadCV.innerHTML = originalText;
+        window.scrollTo(savedScrollX, savedScrollY);
     });
 });
 }
