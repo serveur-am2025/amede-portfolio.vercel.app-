@@ -152,7 +152,7 @@ window.addEventListener("scroll", () => {
 });
 
 // ===============================
-// MENU MOBILE (icône 3 barres)
+// MENU MOBILE
 // ===============================
 
 const menuToggle = document.getElementById("menuToggle");
@@ -166,7 +166,6 @@ if (menuToggle && navLinksMenu) {
         menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
-    // Ferme le menu quand on clique sur un lien
     navLinksMenu.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => {
             navLinksMenu.classList.remove("active");
@@ -175,7 +174,6 @@ if (menuToggle && navLinksMenu) {
         });
     });
 
-    // Ferme le menu si on clique en dehors
     document.addEventListener("click", (event) => {
         const clickInsideMenu = navLinksMenu.contains(event.target) || menuToggle.contains(event.target);
         if (!clickInsideMenu && navLinksMenu.classList.contains("active")) {
@@ -220,7 +218,6 @@ if (btnSend) {
             btnSend.disabled = false;
         }, 3000);
     });
-    
 }
 
 // ===============================
@@ -245,6 +242,9 @@ if (btnDownloadCV) {
 
         btnDownloadCV.innerHTML = "Génération...";
 
+        // Mesure la hauteur RÉELLE du contenu (jamais de coupure ni d'espace vide)
+        const realHeight = element.scrollHeight;
+
         const opt = {
             margin: 0,
             filename: 'CV_RAKOTONANDRASANA_Amede.pdf',
@@ -255,11 +255,11 @@ if (btnDownloadCV) {
                 x: -9999,
                 y: 0,
                 width: 794,
-                height: 1123,
+                height: realHeight,
                 windowWidth: 794,
-                windowHeight: 1123
+                windowHeight: realHeight
             },
-            jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' }
+            jsPDF: { unit: 'px', format: [794, realHeight], orientation: 'portrait' }
         };
 
         html2pdf().set(opt).from(element).save().then(() => {
