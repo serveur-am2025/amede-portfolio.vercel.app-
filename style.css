@@ -1160,18 +1160,19 @@ footer {
    GABARIT CV (export PDF)
 ========================== */
 
+html {
+    overflow-x: hidden;
+}
 #cv-template {
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 0;
-    z-index: -1;
+    left: -9999px;
     width: 794px;
     height: 1123px;
     display: flex;
     background: #ffffff;
     font-family: 'Segoe UI', sans-serif;
     color: #2b2b2b;
-    overflow: hidden;
 }
 
 /* --- Sidebar bleu-gris clair --- */
