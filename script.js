@@ -226,6 +226,14 @@ if (btnSend) {
             return;
         }
 
+        if (telephone) {
+            const telRegex = /^[0-9+\s-]{7,20}$/;
+            if (!telRegex.test(telephone)) {
+                alert("Le numéro de téléphone ne doit contenir que des chiffres (espaces, + et - autorisés).");
+                return;
+            }
+        }
+
         if (!window.emailjs) {
             alert("Le service d'envoi n'est pas disponible pour le moment.");
             return;
