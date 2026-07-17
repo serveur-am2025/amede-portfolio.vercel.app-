@@ -192,8 +192,8 @@ if (menuToggle && navLinksMenu) {
 //    - PUBLIC_KEY   : Account > General > Public Key
 //    - SERVICE_ID   : Email Services > (ton service Gmail) > Service ID
 //    - TEMPLATE_ID  : Email Templates > "Contact Us" > Template ID (ex: rkxf6s7, visible dans l'URL)
-const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
-const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
+const EMAILJS_PUBLIC_KEY  = "fZFTAZNpFk2pgS-2M";
+const EMAILJS_SERVICE_ID  = "service_6kamede";
 const EMAILJS_TEMPLATE_ID = "rkxf6s7";
 
 if (window.emailjs) {
@@ -208,13 +208,11 @@ if (btnSend) {
         const nomInput = document.getElementById("formNom");
         const emailInput = document.getElementById("formEmail");
         const telInput = document.getElementById("formTelephone");
-        const sujetInput = document.getElementById("formSujet");
         const msgInput = document.getElementById("formMessage");
 
         const nom = nomInput ? nomInput.value.trim() : "";
         const email = emailInput ? emailInput.value.trim() : "";
         const telephone = telInput ? telInput.value.trim() : "";
-        const sujet = sujetInput ? sujetInput.value.trim() : "";
         const message = msgInput ? msgInput.value.trim() : "";
 
         if (!nom || !email || !message) {
@@ -242,7 +240,7 @@ if (btnSend) {
             nom: nom,
             email: email,
             telephone: telephone || "Non renseigné",
-            sujet: sujet || "Contact depuis le portfolio",
+            sujet: "Contact depuis le portfolio",
             message: message
         };
 
@@ -255,7 +253,6 @@ if (btnSend) {
                     if (nomInput) nomInput.value = "";
                     if (emailInput) emailInput.value = "";
                     if (telInput) telInput.value = "";
-                    if (sujetInput) sujetInput.value = "";
                     if (msgInput) msgInput.value = "";
                     btnSend.textContent = "Envoyer";
                     btnSend.style.background = "";
