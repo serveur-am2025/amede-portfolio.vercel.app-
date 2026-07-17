@@ -36,10 +36,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ==========================
-   NETWORK CANVAS (fond)
-========================== */
-
 #networkCanvas {
     position: fixed;
     inset: 0;
@@ -47,10 +43,6 @@ body {
     pointer-events: none;
     opacity: 0.55;
 }
-
-/* ==========================
-   CURSOR GLOW
-========================== */
 
 #cursorGlow {
     position: fixed;
@@ -63,10 +55,6 @@ body {
     z-index: 9999;
 }
 
-/* ==========================
-   PROGRESS BAR
-========================== */
-
 #progressBar {
     position: fixed;
     top: 0;
@@ -76,10 +64,6 @@ body {
     background: linear-gradient(90deg, var(--accent), var(--accent2));
     z-index: 99999;
 }
-
-/* ==========================
-   PARTICLES
-========================== */
 
 #particles {
     position: fixed;
@@ -100,10 +84,6 @@ body {
     80% { opacity: .5; }
     100% { transform: translateY(-100vh); opacity: 0; }
 }
-
-/* ==========================
-   HEADER
-========================== */
 
 header {
     position: fixed;
@@ -148,10 +128,6 @@ nav {
     color: var(--accent);
 }
 
-/* ==========================
-   MENU TOGGLE (mobile)
-========================== */
-
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -185,10 +161,6 @@ nav {
 .menu-toggle.active span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
-
-/* ==========================
-   À PROPOS (Hero)
-========================== */
 
 #apropos {
     min-height: 100vh;
@@ -387,10 +359,6 @@ nav {
     50% { transform: translateX(-50%) translateY(8px); }
 }
 
-/* ==========================
-   SECTION GÉNÉRALE
-========================== */
-
 section {
     padding: 100px 20px;
     max-width: 1200px;
@@ -414,10 +382,6 @@ section {
     margin-top: 12px;
     font-size: 0.95rem;
 }
-
-/* ==========================
-   COMPÉTENCES
-========================== */
 
 .skills-category-grid {
     display: grid;
@@ -491,10 +455,6 @@ section {
     background: var(--accent);
     flex-shrink: 0;
 }
-
-/* ==========================
-   EXPÉRIENCES — TIMELINE
-========================== */
 
 .timeline {
     position: relative;
@@ -581,10 +541,6 @@ section {
     line-height: 1.7;
 }
 
-/* ==========================
-   FORMATION
-========================== */
-
 .formation-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -638,10 +594,6 @@ section {
     color: var(--muted);
     font-size: 0.85rem;
 }
-
-/* ==========================
-   PROJECTS
-========================== */
 
 .projects-grid {
     display: grid;
@@ -750,10 +702,6 @@ section {
     height: 13px;
 }
 
-/* ==========================
-   CONTACT
-========================== */
-
 .contact-subtitle {
     color: var(--muted);
     margin-top: 10px;
@@ -861,10 +809,6 @@ section {
     transform: translateY(-2px);
 }
 
-/* ==========================
-   FOOTER
-========================== */
-
 footer {
     text-align: center;
     padding: 30px;
@@ -903,10 +847,6 @@ footer {
     color: var(--accent);
     font-weight: bold;
 }
-
-/* ==========================
-   LANGUES
-========================== */
 
 .langues-box {
     max-width: 900px;
@@ -958,10 +898,6 @@ footer {
     transition: width 1.2s ease;
 }
 
-/* ==========================
-   REVEAL
-========================== */
-
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -972,10 +908,6 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
-
-/* ==========================
-   RESPONSIVE
-========================== */
 
 @media (max-width: 1100px) {
     .skills-category-grid,
@@ -1090,12 +1022,6 @@ footer {
     }
 }
 
-/* ==========================================================
-   GABARIT CV (export PDF)
-   Positionné hors écran horizontalement (-9999px)
-   height:auto pour ne JAMAIS couper le contenu
-========================================================== */
-
 #cv-template {
     position: absolute;
     top: 0;
@@ -1109,7 +1035,6 @@ footer {
     color: #2b2b2b;
 }
 
-/* --- Sidebar GRISE (distincte du header) --- */
 .cv-sidebar {
     width: 250px;
     flex-shrink: 0;
@@ -1178,7 +1103,6 @@ footer {
     word-break: break-all;
 }
 
-/* --- Zone principale --- */
 .cv-main {
     flex: 1;
     display: flex;
@@ -1186,19 +1110,12 @@ footer {
     box-sizing: border-box;
 }
 
-/* --- En-tête avec forme diagonale à deux tons ---
-   ::before = triangle marine, élargi et remontant plus haut
-   pour "mordre" sur la zone au-dessus du nom, comme dans le modèle cible
-========================================================== */
-
 .cv-header {
     position: relative;
     padding: 40px 40px 20px 60px;
     overflow: hidden;
     flex-shrink: 0;
     min-height: 140px;
-    /* Diagonale bleu marine -> lavande via un dégradé à paliers nets
-       (remplace le clip-path, mal supporté par html2canvas lors de l'export PDF) */
     background: linear-gradient(
         100deg,
         #1c2942 0%,
